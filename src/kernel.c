@@ -7,9 +7,10 @@ void print_VGA(const char* str) {
     }
 }
 
-void main() {
+__attribute__((section(".text.entry")))
+void kernel_main() {
     print_VGA("HELLO FROM KERNEL!");
     while(1){
-
+        __asm__ volatile("hlt");
     }
 }
